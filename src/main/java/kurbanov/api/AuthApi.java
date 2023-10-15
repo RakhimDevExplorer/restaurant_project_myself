@@ -1,8 +1,9 @@
 package kurbanov.api;
 
+import jakarta.validation.Valid;
 import kurbanov.config.AuthService;
-import kurbanov.dto.AuthRequest;
-import kurbanov.dto.UserResponseWithToken;
+import kurbanov.dto.requests.AuthRequest;
+import kurbanov.dto.responses.UserResponseWithToken;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,7 @@ public class AuthApi {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<UserResponseWithToken> login(@RequestBody AuthRequest authRequest) {
+    public ResponseEntity<UserResponseWithToken> login(@RequestBody @Valid AuthRequest authRequest) {
         return ResponseEntity.ok(authService.login(authRequest));
 
     }

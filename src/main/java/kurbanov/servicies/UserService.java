@@ -1,9 +1,7 @@
 package kurbanov.servicies;
 
-import kurbanov.dto.UserRequest;
-import kurbanov.dto.UserResponse;
-
-import java.security.Principal;
+import kurbanov.dto.requests.UserRequest;
+import kurbanov.dto.responses.UserResponse;
 
 /**
  * ~ @created 18/09/2023
@@ -13,5 +11,7 @@ import java.security.Principal;
 public interface UserService {
     UserResponse save(UserRequest userRequest);
 
-    UserResponse update(Principal principal, Long userId, UserRequest userRequest);
+    UserResponse update(Long userId, UserRequest userRequest);
+
+    UserResponse findById(Long userId);
 }

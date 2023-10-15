@@ -1,4 +1,4 @@
-package kurbanov.dto;
+package kurbanov.dto.responses;
 
 import kurbanov.models.enums.Role;
 import kurbanov.models.User;

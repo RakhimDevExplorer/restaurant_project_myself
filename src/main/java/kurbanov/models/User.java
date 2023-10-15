@@ -1,13 +1,11 @@
 package kurbanov.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import kurbanov.models.enums.Role;
-import kurbanov.models.enums.Status;
 import lombok.*;
 
 import java.time.LocalDate;
-
-import static jakarta.persistence.CascadeType.ALL;
 
 @Getter
 @Setter
@@ -17,8 +15,8 @@ import static jakarta.persistence.CascadeType.ALL;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User extends BaseEntity {
-    private String firstName;
-    private String lastName;
+    private String fullName;
+
     private LocalDate dateOfBirth;
     @Column(unique = true)
     private String email;
@@ -27,10 +25,6 @@ public class User extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
     private int experience;
-    @Enumerated(EnumType.STRING)
-    private Status status;
-    @ManyToOne(cascade =ALL)
-    private Restaurant restaurant;
 
 
 }

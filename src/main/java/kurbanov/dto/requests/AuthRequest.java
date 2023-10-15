@@ -1,4 +1,4 @@
-package kurbanov.dto;
+package kurbanov.dto.requests;
 
 /**
  * ~ @created 18/09/2023

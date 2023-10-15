@@ -1,8 +1,9 @@
 package kurbanov.config;
 
 
-import kurbanov.dto.AuthRequest;
-import kurbanov.dto.UserResponseWithToken;
+import kurbanov.dto.requests.AuthRequest;
+import kurbanov.dto.responses.UserResponseWithToken;
+import kurbanov.exception.NotFoundException;
 import kurbanov.models.User;
 import kurbanov.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ public class AuthService {
 
     public UserResponseWithToken login(AuthRequest authRequest) {
         User user = userRepository.findUserByEmail(authRequest.email()).orElseThrow(() ->
-                new RuntimeException(String.format("User with email: %s not found!", authRequest.email())));
+                new NotFoundException(String.format("User with email: %s not found!", authRequest.email())));
 
         String password = authRequest.password();
         String dbEncodePassword = user.getPassword();

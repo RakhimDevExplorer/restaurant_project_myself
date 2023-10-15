@@ -1,14 +1,15 @@
-package kurbanov.dto;
+package kurbanov.dto.requests;
 
-import kurbanov.models.enums.Role;
+import jakarta.validation.constraints.Email;
 import kurbanov.models.User;
+import kurbanov.models.enums.Role;
 
 /**
  * ~ @created 18/09/2023
  * ~ @project_name restaurant_project_myself
  * ~ @author kurbanov
  **/
-public record UserRequest(
+public record   UserRequest(
         String fullName,
         String email,
         String password,
